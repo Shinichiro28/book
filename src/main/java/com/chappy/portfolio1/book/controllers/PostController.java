@@ -47,6 +47,23 @@ public class PostController {
         return "redirect:/post";
     }
 
+    //編集
+    @GetMapping("/post/edit/{id}")
+    public String edit(@PathVariable long id, Model model){
+        model.addAttribute("post", repository.findById(id));
+        return "post/edit";
+    }
+
+    //更新
+    @PostMapping("/post/update/{id}")
+    public String update(@PathVariable long id, @Validated @ModelAttribute Post post, BindingResult result){
+        if (result.hasErrors()) {
+            return "post/edit";
+        }
+        repository.save(post);
+        return "redirect:/post";
+    }
+
     //初期データ
     @PostConstruct
     public void dataInit(){
