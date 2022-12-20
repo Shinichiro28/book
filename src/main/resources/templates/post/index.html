@@ -36,6 +36,7 @@
       <tr th:each="post : ${posts}">
         <td>[[${post.name}]]</td>
         <td>[[${post.introduction}]]</td>
+        <td><a th:href="@{/post/delete/{id}(id=${post.id})}">削除</a></td>
       </tr>
     </tbody>
   </table>
