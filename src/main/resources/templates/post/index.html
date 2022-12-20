@@ -13,6 +13,7 @@
   </style>
 </head>
 <body>
+  <h2>投稿</h2>
   <form th:action="@{/post/create}" th:object="${post}" method="post">
     <label>タイトル</label>
     <input type="text" th:field="*{name}" th:errorclass="invalid"><br>
@@ -22,5 +23,21 @@
     <div class="red" th:errors="*{introduction}"></div>
     <button>投稿</button>
   </form>
+
+  <h2>一覧</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>紹介文</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="post : ${posts}">
+        <td>[[${post.name}]]</td>
+        <td>[[${post.introduction}]]</td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>
