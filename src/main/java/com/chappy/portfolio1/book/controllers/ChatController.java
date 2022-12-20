@@ -1,4 +1,4 @@
-package com.chappy.portfolio1.book.controller;
+package com.chappy.portfolio1.book.controllers;
 
 import javax.annotation.PostConstruct;
 
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.chappy.portfolio1.book.model.Chat;
+import com.chappy.portfolio1.book.models.Chat;
 import com.chappy.portfolio1.book.repository.ChatRepository;
 
 @Controller
@@ -30,7 +30,7 @@ public class ChatController {
         return "chat/index";
     }
 
-    //個ページ
+    //詳細ページ
     @GetMapping("/chat/{id}")
     public String show(@PathVariable long id, Model model){
         model.addAttribute("chat", repository.findById(id)); 

@@ -1,4 +1,4 @@
-package com.chappy.portfolio1.book.model;
+package com.chappy.portfolio1.book.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
