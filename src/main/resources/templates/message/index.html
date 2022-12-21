@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>チャット</title>
+</head>
+<body>
+    <form th:action="@{/chat/id/message/create}" th:object="${message}" method="post">
+        <input type="text" th:field="*{text}">
+        <button>送信</button>
+    </form>
+</body>
+</html>
