@@ -10,16 +10,14 @@
         <button>送信</button>
     </form>
 
-    <h2>一覧</h2>
+    <h2>チャット</h2>
     <table>
-        <thead>
-            <tr>
-                <th>チャット名</th> 
+        <tbody>
+            <tr th:each="message : ${messages}">
+                <td><a>[[${message.text}]]</a></td>
+                <td><a th:href="@{/chat/1/message/delete/{id}(id=${message.id})}">削除</a></td>
             </tr>
-        </thead>
-        <tr th:each="message : ${messages}">
-            <td><a>[[${message.text}]]</a></td>
-        </tr>
+        </tbody>
     </table>
 </body>
 </html>
