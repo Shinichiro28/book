@@ -5,7 +5,8 @@
   <title>Chat</title>
 </head>
 <body>
-  チャット名: [[${chat.name}]]<br>
+  チャット名:<p th:text="${name}"></p><br>
+  <a th:href="@{/chat/{id}/message(id=${id})}">チャットページにに進む</a>
   <a href="/book/chat">戻る</a>
 </body>
 </html>

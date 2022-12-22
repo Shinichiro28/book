@@ -32,7 +32,8 @@ public class ChatController {
 
     //詳細ページ
     @GetMapping("/chat/{id}")
-    public String show(@ModelAttribute Chat chat){
+    public String show(@PathVariable Long id, Model model){
+        model.addAttribute("chat", repository.findById(id));
         return "chat/show";
     }
 

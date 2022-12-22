@@ -5,9 +5,21 @@
     <title>チャット</title>
 </head>
 <body>
-    <form th:action="@{/chat/id/message/create}" th:object="${message}" method="post">
+    <form th:action="@{/chat/1/message/create}" th:object="${message}" method="post">
         <input type="text" th:field="*{text}">
         <button>送信</button>
     </form>
+
+    <h2>一覧</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>チャット名</th> 
+            </tr>
+        </thead>
+        <tr th:each="message : ${messages}">
+            <td><a>[[${message.text}]]</a></td>
+        </tr>
+    </table>
 </body>
 </html>
