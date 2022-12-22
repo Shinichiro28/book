@@ -6,12 +6,15 @@
     <title>チャット</title>
 </head>
 <body>
+    <a class="back_to_list" href="/book/chat">チャット一覧に戻る</a>
+    <h2 class="message_form">チャット投稿フォーム</h2>
     <form th:action="@{/chat/1/message/create}" th:object="${message}" method="post">
-        <input type="text" th:field="*{text}">
-        <button>送信</button>
+        <input type="text" th:field="*{text}" th:errorclass="invalid">
+        <button>送信</button><br>
+        <div class="red" th:errors="*{text}"></div>
     </form>
 
-    <h2>チャット</h2>
+    <h2 class="list">チャット</h2>
     <table>
         <tbody>
             <tr th:each="message : ${messages}">

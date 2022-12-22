@@ -1,0 +1,37 @@
+body{
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+input{
+    margin-left: 10px;
+}
+
+button{
+    margin-left: 10px;
+}
+
+.invalid{
+    border: 2px solid red;
+}
+
+.red{
+    color: red;
+}
+
+.list{
+    margin-top: 70px;
+}
+
+.back_to_list{
+    font-size: small;
+}
+
+.message_form{
+    margin-top: 40px;
+}
+
+.edit{
+    margin-left: 300px;
+    margin-top: 40px;
+}

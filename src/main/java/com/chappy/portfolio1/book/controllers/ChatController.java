@@ -38,7 +38,7 @@ public class ChatController {
     }
 
     
-    @PostMapping("/create")
+    @PostMapping("/chat/create")
     public String create(@Validated @ModelAttribute Chat chat, BindingResult result, Model model){
 
         //バリデーションエラーがある場合はindex.htmlを表示
