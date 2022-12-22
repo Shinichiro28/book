@@ -3,6 +3,7 @@ package com.chappy.portfolio1.book.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -12,6 +13,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "chat")
 public class Chat {
     
     @Id

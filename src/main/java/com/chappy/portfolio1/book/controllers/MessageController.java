@@ -1,5 +1,8 @@
 package com.chappy.portfolio1.book.controllers;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,12 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.chappy.portfolio1.book.models.Message;
+import com.chappy.portfolio1.book.repository.ChatRepository;
 import com.chappy.portfolio1.book.repository.MessageRepository;
 
 
 @Controller
 @RequestMapping("/chat/{chatId}")
 public class MessageController {
+
+    @Autowired
+    ChatRepository chatRepository;
 
     private final MessageRepository repository;
     public MessageController(MessageRepository repository){
@@ -25,7 +32,8 @@ public class MessageController {
 
     //一覧ページ
     @GetMapping("/message")
-    public String index(@ModelAttribute Message message, Model model){
+    public String index(@ModelAttribute Message message, Model model, HttpSession session){
+        session.setAttribute("chat", chatRepository.findAll());
         model.addAttribute("messages", repository.findAll());
         return "message/index";
     }
