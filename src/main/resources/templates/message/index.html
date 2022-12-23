@@ -3,9 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet"/>
     <title>チャット</title>
 </head>
 <body>
+    <script th:href="@{/webjars/jquery/3.5.0/js/jquery.min.js}"></script>
+    <script th:href="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+    
     <a class="back_to_list" href="/book/chat">チャット一覧に戻る</a>
     <h2 class="message_form">チャット投稿フォーム</h2>
     <form th:action="@{/chat/1/message/create}" th:object="${message}" method="post">

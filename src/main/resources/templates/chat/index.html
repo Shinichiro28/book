@@ -4,12 +4,17 @@
   <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="../static/css/style.css" th:href="@{/css/style.css}">
+    <link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet"/>
+</head>
     <title>Chat</title>
   </head>
 
   <body>
-      <h2>Our chat</h2>
-      <p>チャットを作ってトークをしてみよう！</p>
+    <script th:href="@{/webjars/jquery/3.5.0/js/jquery.min.js}"></script>
+    <script th:href="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
+    
+    <h2>Our chat</h2>
+    <p>チャットを作ってトークをしてみよう！</p>
     <form th:action="@{/chat/create}" th:object="${chat}" method="post">
       <label>チャット名</label>
       <input class="input" type="text" th:field="*{name}" th:errorclass="invalid"><button class="button">追加</button><br>
