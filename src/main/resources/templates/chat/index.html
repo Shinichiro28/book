@@ -9,22 +9,20 @@
     <title>Chat</title>
   </head>
 
-  <body>
+  <body class="m-5">
     <script th:href="@{/webjars/jquery/3.5.0/js/jquery.min.js}"></script>
     <script th:href="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
     
     <h2>Our chat</h2>
-    <p>チャットを作ってトークをしてみよう！</p>
+    <p class="mt-3">チャットを作ってトークをしてみよう！</p>
     <form th:action="@{/chat/create}" th:object="${chat}" method="post">
       <label>チャット名</label>
-      <input class="input" type="text" th:field="*{name}" th:errorclass="invalid"><button class="button">追加</button><br>
+      <input class="ml-3 mt-3" type="text" th:field="*{name}" th:errorclass="invalid"><button class="btn btn-secondary ml-2">追加</button><br>
       <div class="red" th:errors="*{name}"></div>
-      
-      
     </form>
 
     <h2 class="list">チャット一覧</h2>
-    <table>
+    <table class="table m-3">
       <thead>
           <tr>
               <th>チャット名</th> 
@@ -32,10 +30,12 @@
       </thead>
       <tr th:each="chat : ${chats}">
           <td><a th:href="@{/chat/{id}(id=${chat.id})}">[[${chat.name}]]</a></td>
-          <td><a th:href="@{/chat/edit/{id}(id=${chat.id})}">編集</a></td>
-          <td><a th:href="@{/chat/delete/{id}(id=${chat.id})}">削除</a></td>
+          <td><a class="btn btn-success" th:href="@{/chat/edit/{id}(id=${chat.id})}">編集</a></td>
+          <td><a class="btn btn-danger" th:href="@{/chat/delete/{id}(id=${chat.id})}">削除</a></td>
       </tr>
     </table>
-  </body>
 
+    <a class="mt-5" href="/book/post">本の紹介ページへ行きたい方はこちら！</a>
+
+  </body>
 </html>

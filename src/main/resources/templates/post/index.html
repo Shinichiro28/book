@@ -14,31 +14,35 @@
     <p class="mt-3">あなたのお気に入りの本を教えてください。</p>
     <form th:action="@{/post/create}" th:object="${post}" method="post">
       <label>タイトル</label>
-      <input type="text" th:field="*{name}" th:errorclass="invalid"><br>
+      <input class="ml-3" type="text" th:field="*{name}" th:errorclass="invalid"><br>
       <div class="red" th:errors="*{name}"></div>
       <label>紹介文　</label>
-      <input type="text" th:field="*{introduction}" th:errorclass="invalid">
-      <button>投稿</button><br>
+      <input class="ml-3 mt-3" type="text" th:field="*{introduction}" th:errorclass="invalid">
+      <button class="btn btn-secondary ml-2">投稿</button><br>
       <div class="red" th:errors="*{introduction}"></div>
       
     </form>
 
     <h2 class="list">紹介本一覧</h2>
-    <table class="table">
+    <table class="table m-3">
       <thead>
         <tr>
           <th>タイトル</th>
           <th>紹介文</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <tr th:each="post : ${posts}">
           <td>[[${post.name}]]</td>
           <td>[[${post.introduction}]]</td>
-          <td><a th:href="@{/post/edit/{id}(id=${post.id})}">編集</a></td>
-          <td><a th:href="@{/post/delete/{id}(id=${post.id})}">削除</a></td>
+          <td><a class="btn btn-success" th:href="@{/post/edit/{id}(id=${post.id})}">編集</a></td>
+          <td><a class="btn btn-danger" th:href="@{/post/delete/{id}(id=${post.id})}">削除</a></td>
         </tr>
       </tbody>
     </table>
+
+    <a class="mt-5" href="/book/chat">チャットへ行きたい方はこちら！</a>
   </body>
 </html>

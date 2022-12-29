@@ -6,24 +6,24 @@
     <link th:href="@{/webjars/bootstrap/4.4.1-1/css/bootstrap.min.css}" rel="stylesheet"/>
     <title>チャット</title>
 </head>
-<body>
+<body class="ml-5">
     <script th:href="@{/webjars/jquery/3.5.0/js/jquery.min.js}"></script>
     <script th:href="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
     
     <a class="back_to_list" href="/book/chat">チャット一覧に戻る</a>
     <h2 class="message_form">チャット投稿フォーム</h2>
     <form th:action="@{/chat/1/message/create}" th:object="${message}" method="post">
-        <input type="text" th:field="*{text}" th:errorclass="invalid">
-        <button>送信</button><br>
+        <input class="ml-3" type="text" th:field="*{text}" th:errorclass="invalid">
+        <button class="btn btn-secondary ml-2">送信</button><br>
         <div class="red" th:errors="*{text}"></div>
     </form>
 
     <h2 class="list">チャット</h2>
-    <table>
+    <table class="table m-3">
         <tbody>
             <tr th:each="message : ${messages}">
                 <td><a>[[${message.text}]]</a></td>
-                <td><a th:href="@{/chat/1/message/delete/{id}(id=${message.id})}">削除</a></td>
+                <td><a class="btn btn-danger small" th:href="@{/chat/1/message/delete/{id}(id=${message.id})}">削除</a></td>
             </tr>
         </tbody>
     </table>

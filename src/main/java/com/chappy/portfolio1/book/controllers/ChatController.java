@@ -77,7 +77,7 @@ public class ChatController {
     @PostConstruct
     public void dataInt(){
         Chat sauna = new Chat();
-        sauna.setName("サウナ好き集まれ！");
+        sauna.setName("Java SpringBootについて");
         repository.saveAndFlush(sauna);
     }
 }

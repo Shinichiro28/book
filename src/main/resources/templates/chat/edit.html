@@ -7,14 +7,14 @@
 </head>
     <title>編集画面</title>
   </head>
-  <body>
+  <body class="m-5">
     <script th:href="@{/webjars/jquery/3.5.0/js/jquery.min.js}"></script>
     <script th:href="@{/webjars/bootstrap/4.4.1-1/js/bootstrap.min.js}"></script>
     
     <h2>チャット名編集</h2>
     <form th:action="@{/chat/update/{id}(id=${id})}" th:object="${chat}" method="post">
       <label>チャット名</label>
-      <input class="input" type="text" th:field="*{name}" th:errorclass="invalid"><button class="button">編集</button><br>
+      <input class="ml-3 mt-3" type="text" th:field="*{name}" th:errorclass="invalid"><button class="btn btn-secondary ml-2">編集</button><br>
       <div class="red" th:errors="*{name}"></div>
     </form>
     <a class="back_to_list edit" href="/book/chat">一覧へ戻る</a>
